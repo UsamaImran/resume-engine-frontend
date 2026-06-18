@@ -1,6 +1,6 @@
 import { useResumeStore } from "@/stores/resume.store";
-import { ResumeForm } from "./resumeForm";
-import { ResumePreview } from "./resumePreview";
+import { ResumeForm } from "./resume-form/resumeForm";
+import { StandardTemplate } from "../templates/standard";
 
 export const ResumePreviewEditor = () => {
   const tailoredResume = useResumeStore((state) => state.tailoredResume);
@@ -25,7 +25,7 @@ export const ResumePreviewEditor = () => {
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
           Preview
         </h2>
-        <ResumePreview resume={tailoredResume} />
+        <StandardTemplate resume={tailoredResume} />
       </div>
     </div>
   );
