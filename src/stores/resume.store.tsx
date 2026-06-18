@@ -5,7 +5,7 @@ import type { Step } from "@/types";
 
 interface ResumeStore {
   step: Step;
-  resumeData: ResumeData | null;
+  resumeData: string | null;
   tailoredResume: ResumeData | null;
   coverLetterData: CoverData | null;
   jobDescription: string;
@@ -14,7 +14,7 @@ interface ResumeStore {
 
   // Actions
   setStep: (step: Step) => void;
-  setResumeData: (data: ResumeData) => void;
+  setResumeData: (data: string | null) => void;
   setTailoredResume: (data: ResumeData) => void;
   setCoverLetterData: (data: CoverData) => void;
   setJobDescription: (jd: string) => void;

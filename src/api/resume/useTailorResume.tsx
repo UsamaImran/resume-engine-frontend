@@ -23,8 +23,9 @@ export const useTailorResume = () => {
         payload as any,
       );
     },
-    onSuccess: (tailored: any) => {
-      setTailoredResume(tailored);
+    onSuccess: (tailored) => {
+      console.log(tailored, "Tailored Resume Response");
+      setTailoredResume(tailored.data);
       setStep("preview");
       toast.success("Resume tailored!");
     },

@@ -70,11 +70,11 @@ export interface CoverData {
 
 export interface ParseResumeResponse {
   success: boolean;
-  data: { resume: ResumeData };
+  data: { resume: string };
 }
 
 export interface TailorResumeRequest {
-  resume: ResumeData;
+  resume: string | null;
   jobDescription: string;
   preferences?: {
     tone?: "professional" | "enthusiastic" | "formal";
@@ -83,7 +83,8 @@ export interface TailorResumeRequest {
 }
 
 export interface TailorResumeResponse {
-  tailoredResume: ResumeData;
+  success: boolean;
+  data: ResumeData;
 }
 
 export interface GenerateResumePdfRequest {

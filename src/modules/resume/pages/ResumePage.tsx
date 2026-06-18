@@ -5,8 +5,17 @@ import { ProgressStepper } from "../components/progressStepper";
 import { ResumePreviewEditor } from "../components/resumePreviewEditor";
 import { ResumeUploader } from "../components/resumeUploader";
 
+const allSteps = {
+  upload: <ResumeUploader />,
+  tailor: <JobDescriptionForm />,
+  preview: <ResumePreviewEditor />,
+  generate: <GenerateActions />,
+};
+
 export const ResumePage = () => {
   const step = useResumeStore((state) => state.step);
+
+  const currentStep = allSteps[step];
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
@@ -22,12 +31,7 @@ export const ResumePage = () => {
 
         <ProgressStepper currentStep={step} />
 
-        <div className="mt-6 transition-all duration-300">
-          {step === "upload" && <ResumeUploader />}
-          {step === "tailor" && <JobDescriptionForm />}
-          {step === "preview" && <ResumePreviewEditor />}
-          {step === "generate" && <GenerateActions />}
-        </div>
+        <div className="mt-6 transition-all duration-300">{currentStep}</div>
       </div>
     </div>
   );
