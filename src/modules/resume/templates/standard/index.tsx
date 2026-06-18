@@ -143,7 +143,7 @@ export const StandardTemplate = ({ resume }: TemplateProps) => {
         </>
       )}
 
-      {npmPackages && npmPackages.length > 0 && (
+      {/* {npmPackages && npmPackages.length > 0 && (
         <>
           <h2>Open Source</h2>
           <ul className="open-source-list">
@@ -157,12 +157,37 @@ export const StandardTemplate = ({ resume }: TemplateProps) => {
             })}
           </ul>
         </>
-      )}
+      )} */}
 
-      {education && (
+      {/* ===== EDUCATION (UPDATED) ===== */}
+      {education && education.length > 0 && (
         <>
           <h2>Education</h2>
-          <div className="education">{education}</div>
+          {education.map((edu, index) => (
+            <div key={index} className="education-item">
+              <div className="edu-main">
+                <strong>{edu.degree}</strong> in {edu.fieldOfStudy}
+                {edu.institution && ` — ${edu.institution}`}
+              </div>
+              {edu.startDate && (
+                <div className="edu-date">
+                  {edu.startDate}
+                  {edu.endDate && ` - ${edu.endDate}`}
+                </div>
+              )}
+              {edu.gpa && <div className="edu-gpa">GPA: {edu.gpa}</div>}
+              {edu.honors && edu.honors.length > 0 && (
+                <div className="edu-honors">
+                  <strong>Honors:</strong> {edu.honors.join(", ")}
+                </div>
+              )}
+              {edu.courses && edu.courses.length > 0 && (
+                <div className="edu-courses">
+                  <strong>Relevant Courses:</strong> {edu.courses.join(", ")}
+                </div>
+              )}
+            </div>
+          ))}
         </>
       )}
     </div>

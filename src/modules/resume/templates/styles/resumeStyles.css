@@ -122,11 +122,48 @@
   font-style: italic;
 }
 
-.backend-template .education {
-  font-size: 11.5pt;
-  margin-top: 4px;
+/* ===== EDUCATION (NEW - MATCHES EXISTING STYLES) ===== */
+.backend-template .education-item {
+  margin-bottom: 10px;
+  page-break-inside: avoid;
+}
+
+.backend-template .education-item:last-child {
+  margin-bottom: 0;
+}
+
+.backend-template .edu-main {
   font-weight: 700;
+  font-size: 11.5pt;
+  margin-bottom: 2px;
+}
+
+.backend-template .edu-date {
+  font-size: 11pt;
+  font-weight: 400;
   color: #000000;
+  margin-bottom: 2px;
+  font-style: italic;
+}
+
+.backend-template .edu-gpa {
+  font-size: 11pt;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 1px;
+}
+
+.backend-template .edu-honors,
+.backend-template .edu-courses {
+  font-size: 11pt;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 1px;
+}
+
+.backend-template .edu-honors strong,
+.backend-template .edu-courses strong {
+  font-weight: 600;
 }
 
 /* ===== OPEN SOURCE ===== */

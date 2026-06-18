@@ -28,7 +28,7 @@ const resumeFormOptions = formOptions({
     summary: "",
     skills: [],
     experience: [],
-    education: "",
+    education: [],
     npmPackages: [],
   } as ResumeData,
 });
