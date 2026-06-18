@@ -179,7 +179,7 @@ export const EducationSection = ({ form }: any) => {
                         Honors (optional)
                       </label>
                       <div className="space-y-2">
-                        {honorsField.state.value.map((_, honorIdx) => (
+                        {honorsField?.state?.value?.map((_, honorIdx) => (
                           <div
                             key={honorIdx}
                             className="flex items-center gap-3"
@@ -230,7 +230,7 @@ export const EducationSection = ({ form }: any) => {
                         Relevant Courses (optional)
                       </label>
                       <div className="space-y-2">
-                        {coursesField.state.value.map((_, courseIdx) => (
+                        {coursesField?.state?.value?.map((_, courseIdx) => (
                           <div
                             key={courseIdx}
                             className="flex items-center gap-3"

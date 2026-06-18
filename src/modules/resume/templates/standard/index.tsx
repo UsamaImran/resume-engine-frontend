@@ -115,7 +115,7 @@ export const StandardTemplate = ({ resume }: TemplateProps) => {
       {skills && skills.length > 0 && (
         <>
           <h2>Technical Skills</h2>
-          {skills.map((cat, index) => (
+          {skills?.map((cat, index) => (
             <div key={index} className="skill-row">
               <strong>{cat.category}: </strong>
               {joinSkillItems(cat.items)}
@@ -127,7 +127,7 @@ export const StandardTemplate = ({ resume }: TemplateProps) => {
       {experience && experience.length > 0 && (
         <>
           <h2>Work Experience</h2>
-          {experience.map((job, index) => (
+          {experience?.map((job, index) => (
             <div key={index} className="job">
               <div className="job-main">
                 {job.title} {job.company} — {job.location}
@@ -163,11 +163,11 @@ export const StandardTemplate = ({ resume }: TemplateProps) => {
       {education && education.length > 0 && (
         <>
           <h2>Education</h2>
-          {education.map((edu, index) => (
+          {education?.map((edu, index) => (
             <div key={index} className="education-item">
               <div className="edu-main">
-                <strong>{edu.degree}</strong> in {edu.fieldOfStudy}
-                {edu.institution && ` — ${edu.institution}`}
+                <strong>{edu.degree}</strong> in {edu?.fieldOfStudy}
+                {edu.institution && ` — ${edu?.institution}`}
               </div>
               {edu.startDate && (
                 <div className="edu-date">
@@ -178,12 +178,12 @@ export const StandardTemplate = ({ resume }: TemplateProps) => {
               {edu.gpa && <div className="edu-gpa">GPA: {edu.gpa}</div>}
               {edu.honors && edu.honors.length > 0 && (
                 <div className="edu-honors">
-                  <strong>Honors:</strong> {edu.honors.join(", ")}
+                  <strong>Honors:</strong> {edu?.honors?.join(", ")}
                 </div>
               )}
               {edu.courses && edu.courses.length > 0 && (
                 <div className="edu-courses">
-                  <strong>Relevant Courses:</strong> {edu.courses.join(", ")}
+                  <strong>Relevant Courses:</strong> {edu?.courses?.join(", ")}
                 </div>
               )}
             </div>
