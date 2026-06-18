@@ -80,13 +80,14 @@ export const ResumeForm = ({ resume, onUpdate }: ResumeFormProps) => {
       <CollapsibleSection title="Education">
         <EducationSection form={form} />
       </CollapsibleSection>
+      {!!form.getFieldValue("npmPackages")?.length && (
+        <CollapsibleSection title="npm Packages">
+          <NpmPackagesSection form={form} />
+        </CollapsibleSection>
+      )}
 
-      {/* <CollapsibleSection title="npm Packages">
-        <NpmPackagesSection form={form} />
-      </CollapsibleSection> */}
-
-      <Button type="submit" variant="primary" className="w-full py-6 text-lg">
-        Update Live Preview
+      <Button type="submit" variant="primary" className="w-full text-lg">
+        Generate PDF
       </Button>
     </form>
   );
