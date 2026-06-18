@@ -1,12 +1,12 @@
-//@ts-nocheck
 import { formOptions, useForm } from "@tanstack/react-form";
 import { PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import type { ResumeData, SkillCategory } from "@/types/resume.types";
+import { useEffect } from "react";
 
-const resumeFormOptions = formOptions<ResumeData>({
+const resumeFormOptions = formOptions({
   defaultValues: {
     name: "",
     email: "",
@@ -43,6 +43,17 @@ export const ResumeForm = ({ resume, onUpdate }: ResumeFormProps) => {
       onUpdate(value);
     },
   });
+
+  useEffect(() => {
+    const subscription = form.store.subscribe(() => {
+      const values = form.store.state.values;
+      onUpdate(values);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [form, onUpdate]);
 
   return (
     <form
@@ -267,7 +278,7 @@ export const ResumeForm = ({ resume, onUpdate }: ResumeFormProps) => {
         <form.Field name="npmPackages" mode="array">
           {(field) => (
             <div className="space-y-2">
-              {field.state.value.map((_, idx) => (
+              {field?.state?.value?.map((_, idx) => (
                 <div key={idx} className="flex gap-2">
                   <form.Field name={`npmPackages[${idx}]`}>
                     {(pkgField) => (

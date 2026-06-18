@@ -18,8 +18,8 @@ export const ResumePage = () => {
   const currentStep = allSteps[step];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
-      <div className="max-w-3xl mx-auto px-4">
+    <div className="w-full bg-gray-50 dark:bg-gray-900 py-8">
+      <div className="max-w-full mx-auto px-4">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
             Resume Engine
